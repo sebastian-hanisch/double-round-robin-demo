@@ -11,9 +11,12 @@ spielt das fixe Team gegen Label R, für i=1..(m-1)//2 wird Label (R-i) gegen La
 
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass
 
 from ortools.sat.python import cp_model
+
+NUM_SEARCH_WORKERS = min(8, os.cpu_count() or 1)  # NIE hart auf eine Zahl setzen - siehe project memory
 
 
 @dataclass(frozen=True)
@@ -139,7 +142,9 @@ def colour_rule_home_away(n_teams: int) -> Schedule:
     return Schedule(n_teams=n_teams, rounds=tuple(rounds))
 
 
-def optimal_home_away(n_teams: int, time_limit_s: float = 10.0, num_search_workers: int = 8) -> tuple[Schedule, bool]:
+def optimal_home_away(
+    n_teams: int, time_limit_s: float = 10.0, num_search_workers: int = NUM_SEARCH_WORKERS
+) -> tuple[Schedule, bool]:
     """CP-SAT: exaktes Minimum an Breaks fuer die gegebene Doppelrunden-Paarstruktur.
     Liefert (Schedule, ist_bewiesen_optimal)."""
     _raw, all_rounds, _order = _pair_rounds(n_teams)

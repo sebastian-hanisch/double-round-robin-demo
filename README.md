@@ -21,8 +21,9 @@ Die allgemeine theoretische Schranke für Break-Minimierung (de Werra 1980: mind
 Einzelrunde) liegt bei $2(n-2)$ für die Doppelrunde - diese konkrete Zirkelmethode-Paarstruktur erreicht sie
 nicht; das gemessene Optimum liegt konstant 50 % darüber (siehe "Wo die Annahmen enden").
 
-CP-SAT bleibt dabei über den gesamten gemessenen Bereich schnell: 50 Teams (98 Runden) lösen sich in
-6,6 Sekunden, bewiesen optimal.
+CP-SAT bleibt dabei über den gesamten gemessenen Bereich schnell: 50 Teams (98 Runden) lösen sich bewiesen
+optimal in wenigen Sekunden, deutlich innerhalb der gesetzten 30-Sekunden-Grenze (parallele SAT-Suche - die
+genaue Laufzeit schwankt spürbar zwischen Läufen/Maschinen, siehe `tests/test_claims.py`).
 
 ## Was die Demo zeigt
 
