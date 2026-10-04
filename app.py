@@ -66,8 +66,8 @@ st.caption(
 with st.expander("Drei Heim/Auswärts-Politiken für dieselbe Paarstruktur", expanded=True):
     st.markdown(
         """
-1. **naiv (Rundenparität)**: ein Team spielt zuhause, wenn Team-Label und Rundennummer dieselbe Parität
-   haben - ignoriert komplett, welche Teams in welcher Runde gegeneinander spielen.
+1. **naiv (zuerst genannt = Heim)**: Heim ist, wer in der erzeugten Paarung zuerst genannt wird (Rückrunde
+   automatisch vertauscht) - ignoriert komplett, welche Heim- oder Auswärts-Serien daraus entstehen.
 2. **Farbregel**: exakt dieselbe Weiß/Schwarz-Regel wie in Stück 1 (round-robin-demo), hier als
    Heim/Auswärts gelesen - dort optimiert sie den Farbausgleich (Differenz höchstens 1), nicht die
    Break-Zahl. Wie gut trifft sie trotzdem das Break-Ziel?
@@ -94,7 +94,7 @@ with st.sidebar:
     st.header("⚙️ Einstellungen")
     n_teams = st.slider(
         "Teamzahl", *bounds("n_teams_slider"), step=C.N_TEAMS_STEP, key="n_teams_slider",
-        help="Nur gerade Teamzahl - bei ungerader Zahl waere ein Freilos-Team nicht sauber Heim/Auswärts-bilanzierbar.",
+        help="Nur gerade Teamzahl - bei ungerader Zahl wäre ein Freilos-Team nicht sauber Heim/Auswärts-bilanzierbar.",
     )
     policy = st.radio("Heim/Auswärts-Politik", C.POLICIES, key="policy_radio")
 
@@ -236,6 +236,6 @@ st.markdown("---")
 
 st.caption(
     "Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – "
-    "Operations Research und Machine Learning. Interesse an einer maßgeschneiderten Lösung für "
-    "Ihr Unternehmen? [Kontakt aufnehmen](https://sebastianhanisch.net/kontakt.html)"
+    "Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). "
+    "Mehr zur Reihe: [Turnierplanung: 7 Wege zum Turnierplan](https://sebastianhanisch.net/konzepte-turnierplanung.html)."
 )

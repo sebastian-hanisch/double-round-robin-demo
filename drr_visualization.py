@@ -49,7 +49,7 @@ def build_home_away_grid(schedule: Schedule, upto_round: int) -> go.Figure:
         row_text = []
         for r in range(n_rounds_shown):
             row_z.append(1 if status[t][r] else 0)
-            row_text.append("Heim" if status[t][r] else "Auswaerts")
+            row_text.append("Heim" if status[t][r] else "Auswärts")
         z.append(row_z)
         text.append(row_text)
 
@@ -124,6 +124,6 @@ def build_timing_chart(points: list[TimingPoint]) -> go.Figure:
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=ns, y=secs, mode="lines+markers", line=dict(color=OPTIMAL_COLOR, width=3)))
     fig.update_xaxes(title="Teamzahl", fixedrange=True)
-    fig.update_yaxes(title="CP-SAT-Loesezeit (Sekunden)", fixedrange=True, rangemode="tozero")
+    fig.update_yaxes(title="CP-SAT-Lösezeit (Sekunden)", fixedrange=True, rangemode="tozero")
     fig.update_layout(template="plotly_white", height=300, margin=dict(l=10, r=10, t=20, b=10))
     return fig

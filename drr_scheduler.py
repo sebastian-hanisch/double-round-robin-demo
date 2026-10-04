@@ -182,7 +182,7 @@ def optimal_home_away(
     solver.parameters.num_search_workers = num_search_workers
     status = solver.Solve(model)
     if status not in (cp_model.OPTIMAL, cp_model.FEASIBLE):
-        raise RuntimeError(f"CP-SAT fand keine Loesung (status={status})")
+        raise RuntimeError(f"CP-SAT fand keine Lösung (status={status})")
 
     rounds = []
     for r, pairs in enumerate(all_rounds):
