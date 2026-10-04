@@ -199,7 +199,8 @@ with st.expander("🚧 Wo die Annahmen enden"):
   Breaks - deutlich über der allgemeinen Schranke. Wahrscheinlicher Grund (nicht separat geprüft): diese Demo verlangt eine **gespiegelte**
   ("mirrored") Doppelrunde, dieselbe Rundenreihenfolge mit vertauschten Rollen. Die gemessene Lücke gilt für
   diese gespiegelte Struktur; ob sie auch bei einer NICHT gespiegelten Doppelrunde auftritt, untersucht diese
-  Demo nicht.
+  Demo nicht. Auch der Vergleich "Farbregel gegen Optimum" gilt für diese Struktur: legt man die Rückrunde wie in
+  Stück 1 in die ursprüngliche Reihenfolge, erreicht dieselbe Farbregel für alle geprüften n (4 bis 22) ebenfalls 3(n-2).
 - **Reisedistanz fehlt komplett.** Ein Team kann break-frei spielen und trotzdem quer durchs Land pendeln -
   genau diese Lücke schließt das nächste Stück dieser Linie (Traveling Tournament Problem).
         """

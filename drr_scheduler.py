@@ -58,10 +58,12 @@ def _single_leg_pairs(n_teams: int) -> list[list[tuple[int, int]]]:
 
 
 def _colour_rule_home(n_teams: int, raw_rounds: list[list[tuple[int, int]]]) -> list[dict[int, bool]]:
-    """Identischer Mechanismus wie rr_scheduler.py: die "R+i"-Seite (zweiter Eintrag jedes Paars, ausser
-    beim Fixteam) ist immer Heim; das Fixteam wechselt nach dem ORIGINALEN Rundenindex (vor jeder
-    Präsentations-Umsortierung - exakt wie im Original, wo die Farbe VOR dem Vertauschen der letzten
-    zwei Runden zugewiesen wird)."""
+    """Farbregel von rr_scheduler.py: die "R+i"-Seite (zweiter Eintrag jedes Paars, ausser beim Fixteam) ist
+    immer Heim; das Fixteam wechselt nach der Parität des Rundenindex. Hier wird der Index der übergebenen
+    Rundenliste benutzt (colour_rule_home_away übergibt die gezeigte, bereits umsortierte Reihenfolge) und das
+    Fixteam hat in geraden Runden Heimrecht - gegenüber rr_scheduler.py (Fixteam gerade = Schwarz, Index vor der
+    Umsortierung) ist das ein Spiegelbild beim Fixteam. Auf der gespiegelten Doppelrunde dieser Demo ergibt
+    beides dieselbe Break-Zahl (tests/test_oracle_double_round_robin.py)."""
     fixed = n_teams - 1
     home_by_round: list[dict[int, bool]] = []
     for round_index, pairs in enumerate(raw_rounds):

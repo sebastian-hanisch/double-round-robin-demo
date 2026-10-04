@@ -13,7 +13,10 @@ Grundregel der Doppelrunde (jedes Team empfängt jeden Gegner genau einmal zuhau
 
 - **naiv** (wer zuerst in der Paarung genannt wird, ist zuhause): bei 8 Teams 34 Breaks, bei 20 Teams 106.
 - **Farbregel** (identischer Mechanismus wie `round-robin-demo`, dort für Farbausgleich optimiert, hier als
-  Heim/Auswärts gelesen): 22 bzw. 70 Breaks - besser als naiv, aber **22-30 % mehr** als das Optimum.
+  Heim/Auswärts gelesen): 22 bzw. 70 Breaks - besser als naiv, aber **22-30 % mehr** als das Optimum -
+  auf dieser gespiegelten Doppelrunde (Rückrunde in derselben gezeigten Reihenfolge). Legt man die Rückrunde wie in
+  `round-robin-demo` in die ursprüngliche Reihenfolge, erreicht dieselbe Regel für $n=4\dots22$ ebenfalls $3(n-2)$
+  (`tests/test_oracle_double_round_robin.py`): die Lücke gehört zur Struktur, nicht allein zur Regel.
 - **CP-SAT-Optimum**: 18 bzw. 54 Breaks - bewiesen optimal, für alle gemessenen Teamzahlen (4-20, gerade)
   gilt exakt **3(n-2)** Breaks.
 
@@ -49,7 +52,7 @@ unter denselben Heim/Auswärts-Nebenbedingungen - ein berühmtes, echtes NP-schw
 - **Paarstruktur**: identische Zirkelmethode wie `round-robin-demo` (`drr_scheduler.py`, Port ohne
   Cross-Repo-Import) - ein Team fix, die restlichen $n-1$ rotieren mit Schrittweite $\lceil n/2 \rceil$
   modulo $n-1$. Doppelrunde: Hinrunde plus Rückrunde mit vertauschten Rollen, letzte zwei Runden der
-  Hinrunde vertauscht (identischer FIDE-Trick wie Stück 1, hier gegen den Runden-Übergang).
+  Hinrunde vertauscht (FIDE-Trick wie Stück 1, hier gegen den Runden-Übergang; die Rückrunde läuft hier in der gezeigten Reihenfolge, in Stück 1 in der ursprünglichen).
 - **Politiken** (`drr_scheduler.py`):
   - *naiv*: Heim ist, wer in der erzeugten Paarung zuerst genannt wird - erfüllt die Grundregel automatisch
     durch die Konstruktion, nicht durch Nachdenken über Serien.
@@ -77,6 +80,7 @@ unter denselben Heim/Auswärts-Nebenbedingungen - ein berühmtes, echtes NP-schw
   jedes Team genau $n-1$ Heimspiele.
 - **Politik-Vergleich** (`tests/test_evaluation.py`): CP-SAT-Optimum ist nie schlechter als Farbregel oder
   naiv, für $n=4\dots14$ exakt $3(n-2)$ Breaks (Regressionstest gegen die gemessene Formel).
+- **Orakel** (`tests/test_oracle_double_round_robin.py`): Spielplan-Gültigkeit und Break-Zahl über Heim/Auswärts-Zeichenketten, CP-SAT-Optimum gegen Brute Force ($n=4,6$) und eine MILP-Formulierung mit scipy ($n=8$), Farbregel auf der Doppelrunde von Stück 1, Break-Kreuze im Gitter.
 - **Oberfläche** (`tests/test_app.py`): alle Presets, alle drei Politiken bei minimaler/maximaler Teamzahl,
   Runden-Regler-Reset bei Teamzahl-Wechsel.
 

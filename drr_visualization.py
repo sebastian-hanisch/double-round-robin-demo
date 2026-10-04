@@ -55,6 +55,8 @@ def build_home_away_grid(schedule: Schedule, upto_round: int) -> go.Figure:
 
     fig = go.Figure(
         data=go.Heatmap(
+            x=list(range(1, n_rounds_shown + 1)),
+            y=list(range(1, n_teams + 1)),
             z=z,
             text=text,
             hovertemplate="Team %{y}, Runde %{x}: %{text}<extra></extra>",
@@ -70,8 +72,8 @@ def build_home_away_grid(schedule: Schedule, upto_round: int) -> go.Figure:
     for t in range(n_teams):
         for r in range(1, n_rounds_shown):
             if status[t][r] is not None and status[t][r - 1] is not None and status[t][r] == status[t][r - 1]:
-                break_x.append(r)
-                break_y.append(t)
+                break_x.append(r + 1)                  # Rundenzählung ab 1, wie der Regler "Bis Runde"
+                break_y.append(t + 1)
     if break_x:
         fig.add_trace(
             go.Scatter(
@@ -85,8 +87,8 @@ def build_home_away_grid(schedule: Schedule, upto_round: int) -> go.Figure:
             )
         )
 
-    fig.update_xaxes(title="Runde", tickmode="linear", dtick=max(1, n_rounds_shown // 15))
-    fig.update_yaxes(title="Team", tickmode="linear", dtick=max(1, n_teams // 15), autorange="reversed")
+    fig.update_xaxes(title="Runde", tickmode="linear", tick0=1, dtick=max(1, n_rounds_shown // 15))
+    fig.update_yaxes(title="Team", tickmode="linear", tick0=1, dtick=max(1, n_teams // 15), autorange="reversed")
     fig.update_layout(
         template="plotly_white",
         height=min(120 + n_teams * 22, 700),
