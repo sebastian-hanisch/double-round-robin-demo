@@ -196,10 +196,10 @@ with st.expander("🚧 Wo die Annahmen enden"):
 - **Die allgemeine theoretische Schranke 2(n-2) wird von dieser Paarstruktur nicht erreicht.** Gemessen
   (CP-SAT, bewiesen optimal für alle gezeigten n): das tatsächliche Optimum für DIESE Paarstruktur
   (Zirkelmethode, mit der Nebenbedingung "jedes Paar einmal je Seite zuhause") liegt konstant bei **3(n-2)**
-  Breaks - deutlich über der allgemeinen Schranke. Grund: diese Demo verlangt eine **gespiegelte**
-  ("mirrored") Doppelrunde, dieselbe Rundenreihenfolge mit vertauschten Rollen. Goossens & Spieksma (2011)
-  zeigen, dass eine NICHT gespiegelte Doppelrunde die allgemeine Schranke erreichen kann - der Mehrpreis ist
-  also spezifisch für die gespiegelte Struktur, nicht für die Doppelrunde an sich.
+  Breaks - deutlich über der allgemeinen Schranke. Wahrscheinlicher Grund (nicht separat geprüft): diese Demo verlangt eine **gespiegelte**
+  ("mirrored") Doppelrunde, dieselbe Rundenreihenfolge mit vertauschten Rollen. Die gemessene Lücke gilt für
+  diese gespiegelte Struktur; ob sie auch bei einer NICHT gespiegelten Doppelrunde auftritt, untersucht diese
+  Demo nicht.
 - **Reisedistanz fehlt komplett.** Ein Team kann break-frei spielen und trotzdem quer durchs Land pendeln -
   genau diese Lücke schließt das nächste Stück dieser Linie (Traveling Tournament Problem).
         """

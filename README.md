@@ -63,10 +63,10 @@ unter denselben Heim/Auswärts-Nebenbedingungen - ein berühmtes, echtes NP-schw
   Heim/Auswärts-Status für ein Team; Runde 1 zählt nie als Break.
 - **Quellen**: de Werra, D. (1980). "Geography, games and graphs." *Discrete Applied Mathematics* 2(4),
   327-337 (Ursprung der $n-2$-Schranke für die Einzelrunde). Goossens, D. & Spieksma, F. (2011). "Breaks,
-  cuts, and patterns." *Operations Research Letters* 39(6) - zeigt u. a., dass eine **nicht** gespiegelte
-  Doppelrunde (Hin-/Rückrunde ohne die "gleiche Reihenfolge, vertauschte Rollen"-Nebenbedingung dieser Demo)
-  dieselbe Schranke wie die Einzelrunde erreichen kann; die gemessene Mehrkosten-Lücke dieser Demo (3(n-2)
-  statt 2(n-2)) sind spezifisch für die **gespiegelte** ("mirrored") Struktur. Terminologie "mirrored double
+  cuts, and patterns." *Operations Research Letters* 39(6), 428-432 - verallgemeinert den Break-Begriff auf
+  nicht aufeinanderfolgende Runden (weiterführende Literatur zu Breaks und Heim-Auswärts-Mustern, nicht Beleg
+  einer Aussage dieser Demo); die gemessene Mehrkosten-Lücke dieser Demo (3(n-2) statt 2(n-2)) gilt für die
+  **gespiegelte** ("mirrored") Struktur - für nicht gespiegelte Doppelrunden macht die Demo keine Aussage. Terminologie "mirrored double
   round-robin tournament" zusätzlich aus Suzuka et al. (2021, "Solving Large Break Minimization Problems in
   a Mirrored Double Round-robin Tournament Using Quantum Annealing").
 
